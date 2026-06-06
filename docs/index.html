@@ -6,6 +6,7 @@
 <title>DETECTMiND</title>
 <meta name="description" content="DETECTMiND — Android research app from the University of Southampton." />
 <link rel="icon" href="assets/detectmind-icon.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/detectmind-icon.png" />
 <style>
   :root {
     --ink: #11141C;
@@ -32,28 +33,18 @@
   .wrap {
     max-width: 640px;
     margin: 0 auto;
-    padding: 56px 24px 80px;
+    padding: 48px 24px 80px;
   }
   .brand {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 40px;
+    gap: 12px;
+    margin-bottom: 36px;
   }
-  .brand img {
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
-  }
-  .brand-name {
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: 0.3px;
-  }
-  .brand-uni {
-    color: var(--muted);
-    font-size: 13px;
-  }
+  .brand img { width: 48px; height: 48px; border-radius: 10px; }
+  .brand-name { font-weight: 700; font-size: 18px; letter-spacing: 0.3px; }
+  .brand-uni { color: var(--muted); font-size: 13px; }
+
   h1 {
     font-size: 34px;
     line-height: 1.2;
@@ -64,15 +55,56 @@
   .lede {
     color: var(--ink-2);
     font-size: 18px;
-    margin: 0 0 32px;
+    margin: 0 0 24px;
   }
+
+  /* Researcher card — placed early for trust */
+  .researcher {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 32px;
+  }
+  .researcher img {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--line);
+    flex-shrink: 0;
+  }
+  .researcher-name { font-weight: 600; color: var(--ink); font-size: 15px; }
+  .researcher-role { color: var(--muted); font-size: 13px; margin-top: 1px; }
+  .researcher-links { margin-top: 6px; font-size: 13px; }
+  .researcher-links a { color: var(--accent); text-decoration: none; }
+  .researcher-links a:hover { text-decoration: underline; }
+  .researcher-links .sep { color: var(--line); margin: 0 6px; }
+
+  .ethics {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .ethics::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #2E7D6B;
+  }
+
   .download {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     background: var(--accent);
     color: white;
-    padding: 14px 22px;
+    padding: 14px 24px;
     border-radius: 10px;
     font-weight: 600;
     font-size: 16px;
@@ -81,19 +113,40 @@
   }
   .download:hover { background: #1F2D52; transform: translateY(-1px); }
   .download-meta {
-    display: inline-block;
-    margin-left: 14px;
+    display: block;
+    margin-top: 8px;
     color: var(--muted);
     font-size: 13px;
-    vertical-align: middle;
   }
+
+  .note {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 24px 0 0;
+    color: var(--ink-2);
+    font-size: 14px;
+  }
+  .note strong { color: var(--ink); }
+  .note code {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
   hr {
     border: none;
     border-top: 1px solid var(--line);
-    margin: 48px 0;
+    margin: 44px 0;
   }
+
   h2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.2px;
@@ -102,6 +155,7 @@
   }
   p { margin: 0 0 14px; color: var(--ink-2); }
   p strong { color: var(--ink); }
+
   ol.steps {
     list-style: none;
     padding: 0;
@@ -111,7 +165,7 @@
   ol.steps li {
     counter-increment: step;
     position: relative;
-    padding: 0 0 18px 36px;
+    padding: 0 0 16px 38px;
     color: var(--ink-2);
   }
   ol.steps li:last-child { padding-bottom: 0; }
@@ -119,7 +173,7 @@
     content: counter(step);
     position: absolute;
     left: 0; top: 1px;
-    width: 24px; height: 24px;
+    width: 26px; height: 26px;
     background: var(--accent-soft);
     color: var(--accent);
     border-radius: 50%;
@@ -130,22 +184,38 @@
     justify-content: center;
   }
   ol.steps li strong { color: var(--ink); }
-  .researcher {
-    display: flex;
-    gap: 16px;
-    align-items: center;
+  ol.steps li em { font-style: normal; background: var(--accent-soft); color: var(--accent); padding: 1px 6px; border-radius: 4px; font-size: 0.92em; }
+
+  .after {
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 14px;
+    font-style: italic;
   }
-  .researcher img {
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: var(--line);
-    flex-shrink: 0;
+
+  .screenshot {
+    margin: 28px 0 0;
+    text-align: center;
   }
-  .researcher-name { font-weight: 600; color: var(--ink); }
-  .researcher-role { color: var(--muted); font-size: 14px; margin-top: 2px; }
-  .researcher a { color: var(--accent); text-decoration: none; }
-  .researcher a:hover { text-decoration: underline; }
+  .screenshot img {
+    max-width: 260px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: 0 12px 36px rgba(17, 20, 28, 0.10), 0 2px 8px rgba(17, 20, 28, 0.05);
+  }
+  .screenshot-caption {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .what-collected a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+  .what-collected a:hover { border-bottom-color: var(--accent); }
+
   .foot {
     margin-top: 56px;
     padding-top: 24px;
@@ -155,21 +225,11 @@
   }
   .foot a { color: var(--muted); text-decoration: underline; text-decoration-color: var(--line); }
   .foot a:hover { color: var(--ink); text-decoration-color: var(--ink); }
-  .note {
-    background: white;
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin: 20px 0 0;
-    color: var(--ink-2);
-    font-size: 14px;
-  }
-  .note strong { color: var(--ink); }
+
   @media (max-width: 520px) {
-    .wrap { padding: 36px 20px 64px; }
+    .wrap { padding: 32px 20px 64px; }
     h1 { font-size: 28px; }
     .lede { font-size: 16px; }
-    .download-meta { display: block; margin: 12px 0 0; }
   }
 </style>
 </head>
@@ -186,49 +246,54 @@
   </div>
 
   <h1>A research app on smartphone behaviour and wellbeing.</h1>
-  <p class="lede">Available to invited participants only. If you've been asked to take part, you can install the app below.</p>
+  <p class="lede">For invited participants only. If you've been asked to take part, you can install the app below.</p>
 
-  <a class="download" href="DETECTMiND.apk" download>Download DETECTMiND.apk</a>
-  <span class="download-meta">v1.0.0 · Android 8.0+ · ~20&nbsp;MB</span>
+  <div class="researcher">
+    <img src="assets/researcher.webp" alt="Dr Anoop Kadan" onerror="this.style.display='none'" />
+    <div>
+      <div class="researcher-name">Dr Anoop Kadan</div>
+      <div class="researcher-role">Lecturer in Machine Learning · University of Southampton</div>
+      <div class="researcher-links">
+        <a href="mailto:A.Kadan@soton.ac.uk">A.Kadan@soton.ac.uk</a>
+        <span class="sep">·</span>
+        <a href="https://www.southampton.ac.uk/people/65qvt5/doctor-anoop-kadan" target="_blank" rel="noopener">Staff profile</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="ethics">Reviewed and approved by Southampton ERGO — ref TODO/XXXXX</p>
+
+  <a class="download" href="DETECTMiND.apk" download>Download for Android</a>
+  <span class="download-meta">v1.0.0 · Android 8.0 or later · 19&nbsp;MB</span>
 
   <div class="note">
-    <strong>Heads up:</strong> Android will show security warnings during the first install — this is normal for apps distributed outside the Play Store. The steps below will get you through them.
+    <strong>You'll see two security prompts.</strong> Both are normal for apps installed outside the Play Store.
+    <br />Your browser will say <em>"this type of file can harm your device"</em> — tap <code>Download anyway</code>.
+    <br />Android will say <em>"this app was not checked for safety"</em> — tap <code>Install anyway</code>.
   </div>
 
   <hr />
 
   <h2>Install</h2>
   <ol class="steps">
-    <li>Tap <strong>Download DETECTMiND.apk</strong> above. If the browser warns about the file type, choose <em>Keep</em> or <em>Download anyway</em>.</li>
-    <li>Open the file from your notification shade, or from <em>Files</em> → <em>Downloads</em>.</li>
-    <li>If Android asks, allow your browser to install unknown apps, then return to the installer.</li>
-    <li>Tap <strong>Install</strong>, then <strong>Open</strong>.</li>
-    <li>Read the consent screen carefully. If you're happy to take part, accept it.</li>
-    <li>Grant the permissions the app asks for. Each one has a one-tap shortcut to the right Settings screen.</li>
-    <li>Enter your 6-character participant code (sent to you separately) and you're done.</li>
+    <li><strong>Download</strong> using the button above.</li>
+    <li><strong>Open the file</strong> from your notification or your <em>Files</em> app → <em>Downloads</em>. If Android asks, allow your browser to install unknown apps, then come back.</li>
+    <li><strong>Install, then open</strong> the app. It will guide you through the consent screen, the permissions, and asking for your 6-character participant code.</li>
   </ol>
+  <p class="after">Once you're set up, the app runs quietly in the background. You don't need to open it again unless asked.</p>
 
-  <hr />
-
-  <h2>Research lead</h2>
-  <div class="researcher">
-    <img src="assets/researcher.webp" alt="Dr Anoop Kadan" onerror="this.style.display='none'" />
-    <div>
-      <div class="researcher-name">Dr Anoop Kadan</div>
-      <div class="researcher-role">Lecturer in Machine Learning · University of Southampton</div>
-      <div style="margin-top: 6px;">
-        <a href="mailto:A.Kadan@soton.ac.uk">A.Kadan@soton.ac.uk</a>
-        &nbsp;·&nbsp;
-        <a href="https://www.southampton.ac.uk/people/65qvt5/doctor-anoop-kadan" target="_blank" rel="noopener">Staff profile</a>
-      </div>
-    </div>
+  <div class="screenshot">
+    <img src="assets/screenshot-home.png" alt="DETECTMiND home screen showing the active study and a list of sensors being collected." onerror="this.parentElement.style.display='none'" />
+    <div class="screenshot-caption">What the app looks like after you're set up.</div>
   </div>
 
   <hr />
 
-  <h2>What's collected</h2>
-  <p>The app records sensor data (such as app usage, screen state, gestures, and location) and your responses to short scheduled questions. Phone numbers and message content are SHA-256 hashed before storage — raw content is never saved.</p>
-  <p>Full detail in the <a href="privacy.html" style="color: var(--accent);">privacy policy</a>.</p>
+  <h2 class="what-collected" style="text-transform: uppercase;">What's collected</h2>
+  <div class="what-collected">
+    <p>The app records sensor data (such as app usage, screen state, gestures, and location) and your responses to short scheduled questions. Phone numbers and message content are SHA-256 hashed before storage — raw content is never saved.</p>
+    <p>Full detail in the <a href="privacy.html">privacy policy</a>.</p>
+  </div>
 
   <div class="foot">
     © University of Southampton ·
