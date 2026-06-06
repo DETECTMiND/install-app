@@ -2,127 +2,302 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Privacy Policy — DETECTMiND</title>
 <meta name="description" content="Privacy policy for the DETECTMiND research participant app." />
+<meta name="theme-color" content="#2C3E6B" />
 <link rel="icon" href="assets/detectmind-icon.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/detectmind-icon.png" />
 <style>
+  :root {
+    --ink: #11141C;
+    --ink-2: #3A4150;
+    --muted: #6B7280;
+    --line: #E5E7EB;
+    --bg: #FAFAF7;
+    --accent: #2C3E6B;
+    --accent-soft: #EEF0F6;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 48px 24px 80px;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    margin: 0;
     line-height: 1.65;
-    color: #1C1C2E;
-    background: #F7F8FB;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  a.back { color: #4A6FA5; text-decoration: none; font-size: 14px; }
-  a.back:hover { text-decoration: underline; }
-  h1 { font-size: 28px; margin: 16px 0 8px; color: #1A2545; }
-  h2 { font-size: 18px; margin: 32px 0 8px; color: #1A2545; }
-  p { margin: 0 0 12px; }
-  ul { padding-left: 22px; }
-  li { margin: 4px 0; }
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 12px 0 20px;
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 36px 24px 80px;
+  }
+
+  /* — Back link — */
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .back:hover { color: var(--ink); }
+
+  /* — Headings — */
+  h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    margin: 0 0 8px;
+    color: var(--ink);
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 28px;
+  }
+  h2 {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--muted);
+    margin: 36px 0 12px;
+  }
+  /* Lead paragraph */
+  .lede {
+    font-size: 17px;
+    color: var(--ink-2);
+    margin: 0 0 24px;
+  }
+
+  /* — Body text — */
+  p { margin: 0 0 14px; color: var(--ink-2); }
+  p strong, li strong { color: var(--ink); }
+  ul { padding-left: 20px; margin: 0 0 14px; }
+  li { margin: 6px 0; color: var(--ink-2); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* — Sensor list (replaces wide 3-col table) — */
+  .sensors {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
     background: white;
-    border-radius: 8px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   }
-  th, td { padding: 10px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid #E8EBF2; font-size: 14px; }
-  th { background: #EEF1F6; font-weight: 600; }
-  tr:last-child td { border-bottom: none; }
-  .meta { color: #5A6478; font-size: 13px; margin-bottom: 24px; }
-  footer { margin-top: 48px; color: #5A6478; font-size: 13px; text-align: center; }
-  footer a { color: #4A6FA5; text-decoration: none; }
-  footer a:hover { text-decoration: underline; }
+  .sensors li {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    margin: 0;
+  }
+  .sensors li:last-child { border-bottom: none; }
+  .sensor-name {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .sensor-detail {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .sensor-detail .privacy {
+    display: inline-block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* — Footer — */
+  .foot {
+    margin-top: 56px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .foot a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+  }
+  .foot a:hover { color: var(--ink); text-decoration-color: var(--ink); }
+
+  /* — Phone — */
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .wrap {
+      padding: 24px 20px max(40px, env(safe-area-inset-bottom));
+    }
+    h1 { font-size: 26px; }
+    h2 { margin-top: 28px; font-size: 12px; }
+    .lede { font-size: 16px; }
+    .sensors li { padding: 12px 14px; }
+    .sensor-name { font-size: 14px; }
+    .sensor-detail { font-size: 13.5px; }
+  }
+
+  @supports (padding: max(0px)) {
+    .wrap { padding-bottom: max(80px, env(safe-area-inset-bottom)); }
+  }
 </style>
 </head>
 <body>
 
-<a class="back" href="./">← DETECTMiND home</a>
-<h1>Privacy Policy</h1>
-<p class="meta">Last updated: <strong>TODO update date</strong> · Data controller: University of Southampton</p>
+<div class="wrap">
 
-<p>This privacy policy explains how the <strong>DETECTMiND</strong> research app collects, uses, and protects data from participants. By installing and using the app, you agree to the practices described here.</p>
+  <a class="back" href="./">← DETECTMiND home</a>
 
-<h2>1. What data is collected</h2>
-<p>Only the sensors enabled for your specific study cohort are collected. The full set of possible sensors:</p>
-<table>
-  <thead>
-    <tr><th>Sensor</th><th>What is recorded</th><th>Privacy handling</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>App usage</td><td>Which apps you open, start/end time, duration</td><td>Package name only — no in-app content</td></tr>
-    <tr><td>Notifications</td><td>App that posted a notification, time, title (if shown on lock screen)</td><td>No notification body content stored</td></tr>
-    <tr><td>Battery</td><td>Level, charging state, temperature, voltage</td><td>No identifiers</td></tr>
-    <tr><td>Calls</td><td>Direction (incoming/outgoing/missed), duration, time</td><td>Phone numbers are SHA-256 hashed before storage</td></tr>
-    <tr><td>SMS</td><td>Direction, time</td><td>Both contact number and message body are SHA-256 hashed; raw content never stored</td></tr>
-    <tr><td>Location</td><td>GPS coordinates, accuracy, speed</td><td>Collected per study config — sampling rate varies</td></tr>
-    <tr><td>Light</td><td>Ambient light sensor readings</td><td>No identifiers</td></tr>
-    <tr><td>Screen state</td><td>On / off / locked / unlocked events</td><td>No content</td></tr>
-    <tr><td>Gestures</td><td>Taps, scrolls, long-presses — type and target app only</td><td>No on-screen content; OS-enforced via accessibility privacy flag</td></tr>
-    <tr><td>Survey responses (ESM)</td><td>Your answers to short scheduled questions</td><td>Linked to your participant ID only</td></tr>
-  </tbody>
-</table>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated 6 June 2026 · Data controller: University of Southampton</p>
 
-<h2>2. What is NOT collected</h2>
-<ul>
-  <li>The content of messages, emails, or notifications</li>
-  <li>Phone numbers in plain text (only hashed)</li>
-  <li>What you type, see, or hear on the screen</li>
-  <li>Audio, video, photos, or microphone input</li>
-  <li>Browsing history or web content</li>
-  <li>Your real name or contact details (only your participant ID)</li>
-</ul>
+  <p class="lede">This policy explains how the <strong>DETECTMiND</strong> research app collects, uses, and protects data from participants. By installing and using the app, you agree to the practices described here.</p>
 
-<h2>3. How data is stored and transmitted</h2>
-<ul>
-  <li>All data is first stored locally on your device's encrypted app storage.</li>
-  <li>Data is uploaded over HTTPS (TLS 1.2+) to a research database hosted by Supabase Inc. on EU servers.</li>
-  <li>Each upload is associated only with your study participant ID (a random UUID); your real identity is held separately by the research team in line with university data-management procedures.</li>
-</ul>
+  <h2>1. What data is collected</h2>
+  <p>Only the sensors enabled for your study cohort are collected. The full set of possible sensors:</p>
 
-<h2>4. Who can see the data</h2>
-<ul>
-  <li>The research team at the University of Southampton.</li>
-  <li>The university's research ethics committee, if requested for audit purposes.</li>
-  <li>Data is not shared with advertisers, marketers, or any commercial third party.</li>
-</ul>
+  <ul class="sensors">
+    <li>
+      <div class="sensor-name">App usage</div>
+      <div class="sensor-detail">
+        Which apps you open, start/end time, duration.
+        <span class="privacy">Package name only — no in-app content.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Notifications</div>
+      <div class="sensor-detail">
+        App that posted a notification, time, title (if shown on the lock screen).
+        <span class="privacy">No notification body content stored.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Battery</div>
+      <div class="sensor-detail">
+        Level, charging state, temperature, voltage.
+        <span class="privacy">No identifiers.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Calls</div>
+      <div class="sensor-detail">
+        Direction (incoming, outgoing, missed), duration, time.
+        <span class="privacy">Phone numbers are SHA-256 hashed before storage.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">SMS</div>
+      <div class="sensor-detail">
+        Direction, time.
+        <span class="privacy">Contact number and message body are SHA-256 hashed; raw content is never stored.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Location</div>
+      <div class="sensor-detail">
+        GPS coordinates, accuracy, speed.
+        <span class="privacy">Collected per study config — sampling rate varies.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Ambient light</div>
+      <div class="sensor-detail">
+        Light sensor readings in lux.
+        <span class="privacy">No identifiers.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Screen state</div>
+      <div class="sensor-detail">
+        On / off / locked / unlocked events.
+        <span class="privacy">No content.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Gestures</div>
+      <div class="sensor-detail">
+        Taps, scrolls, long-presses — type and target app only.
+        <span class="privacy">No on-screen content; OS-enforced via the accessibility privacy flag.</span>
+      </div>
+    </li>
+    <li>
+      <div class="sensor-name">Survey responses (ESM)</div>
+      <div class="sensor-detail">
+        Your answers to short scheduled questions.
+        <span class="privacy">Linked to your participant ID only.</span>
+      </div>
+    </li>
+  </ul>
 
-<h2>5. How long data is kept</h2>
-<p>Data is retained for the duration of the study plus the period required by the University of Southampton's research data management policy (typically <strong>10 years</strong> for published research outputs). After this period the data is securely destroyed.</p>
+  <h2>2. What is NOT collected</h2>
+  <ul>
+    <li>The content of messages, emails, or notifications</li>
+    <li>Phone numbers in plain text (only hashed)</li>
+    <li>What you type, see, or hear on the screen</li>
+    <li>Audio, video, photos, or microphone input</li>
+    <li>Browsing history or web content</li>
+    <li>Your real name or contact details (only your participant ID)</li>
+  </ul>
 
-<h2>6. Your rights under UK GDPR</h2>
-<ul>
-  <li><strong>Withdraw</strong> at any time, either from the app's Settings screen or by emailing the researcher.</li>
-  <li><strong>Request a copy</strong> of the data linked to your participant ID.</li>
-  <li><strong>Request deletion</strong> of your data from the research database.</li>
-  <li><strong>Complain</strong> to the UK Information Commissioner's Office (ICO) if you believe your rights have been infringed.</li>
-</ul>
+  <h2>3. How data is stored and transmitted</h2>
+  <ul>
+    <li>All data is first stored locally on your device's encrypted app storage.</li>
+    <li>Data is uploaded over HTTPS (TLS 1.2+) to a research database hosted by Supabase Inc. on EU servers.</li>
+    <li>Each upload is associated only with your study participant ID (a random UUID); your real identity is held separately by the research team in line with university data-management procedures.</li>
+  </ul>
 
-<h2>7. Banking-app pause feature</h2>
-<p>Some banking apps refuse to open when an accessibility service is active. DETECTMiND detects when you launch a configured banking app and prompts you (via notification) to pause gesture collection. We do not collect or transmit any data about your banking activity itself.</p>
+  <h2>4. Who can see the data</h2>
+  <ul>
+    <li>The research team at the University of Southampton.</li>
+    <li>The university's research ethics committee, if requested for audit purposes.</li>
+    <li>Data is not shared with advertisers, marketers, or any commercial third party.</li>
+  </ul>
 
-<h2>8. Security</h2>
-<p>The Android app stores data locally on your device using Android's standard app-private storage, encrypted at rest by the OS. Network transmission uses TLS 1.2 or higher. The server uses row-level security to ensure only the research team can read participant data.</p>
+  <h2>5. How long data is kept</h2>
+  <p>Data is retained for the duration of the study plus the period required by the University of Southampton's research data management policy (typically <strong>10 years</strong> for published research outputs). After this period the data is securely destroyed.</p>
 
-<h2>9. Children</h2>
-<p>This app is not intended for use by anyone under 18. We do not knowingly collect data from minors.</p>
+  <h2>6. Your rights under UK GDPR</h2>
+  <ul>
+    <li><strong>Withdraw</strong> at any time, either from the app's Settings screen or by emailing the researcher.</li>
+    <li><strong>Request a copy</strong> of the data linked to your participant ID.</li>
+    <li><strong>Request deletion</strong> of your data from the research database.</li>
+    <li><strong>Complain</strong> to the UK Information Commissioner's Office (ICO) if you believe your rights have been infringed.</li>
+  </ul>
 
-<h2>10. Contact</h2>
-<p>For any questions about how your data is handled, contact:</p>
-<ul>
-  <li><strong>Dr Anoop Kadan</strong> · <a href="mailto:A.Kadan@soton.ac.uk">A.Kadan@soton.ac.uk</a></li>
-  <li>University of Southampton Data Protection Officer · <a href="mailto:data.protection@soton.ac.uk">data.protection@soton.ac.uk</a></li>
-</ul>
+  <h2>7. Banking-app pause feature</h2>
+  <p>Some banking apps refuse to open when an accessibility service is active. DETECTMiND detects when you launch a configured banking app and prompts you (via notification) to pause gesture collection. We do not collect or transmit any data about your banking activity itself.</p>
 
-<footer>
-  <a href="./">DETECTMiND home</a> · <a href="install/">Install instructions</a>
-</footer>
+  <h2>8. Security</h2>
+  <p>The Android app stores data locally on your device using Android's standard app-private storage, encrypted at rest by the OS. Network transmission uses TLS 1.2 or higher. The server uses row-level security to ensure only the research team can read participant data.</p>
+
+  <h2>9. Children</h2>
+  <p>This app is not intended for use by anyone under 18. We do not knowingly collect data from minors.</p>
+
+  <h2>10. Contact</h2>
+  <p>For any questions about how your data is handled, contact:</p>
+  <ul>
+    <li><strong>Dr Anoop Kadan</strong> · <a href="mailto:A.Kadan@soton.ac.uk">A.Kadan@soton.ac.uk</a></li>
+    <li>University of Southampton Data Protection Officer · <a href="mailto:data.protection@soton.ac.uk">data.protection@soton.ac.uk</a></li>
+  </ul>
+
+  <div class="foot">
+    <a href="./">← Back to DETECTMiND home</a>
+  </div>
+
+</div>
 
 </body>
 </html>
