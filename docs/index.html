@@ -193,20 +193,27 @@
     font-style: italic;
   }
 
-  .screenshot {
-    margin: 28px 0 0;
-    text-align: center;
+  .shots {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0 0;
   }
-  .screenshot img {
-    max-width: 260px;
+  .shot { text-align: center; }
+  .shot img {
     width: 100%;
+    max-width: 240px;
     border-radius: 18px;
     box-shadow: 0 12px 36px rgba(17, 20, 28, 0.10), 0 2px 8px rgba(17, 20, 28, 0.05);
   }
-  .screenshot-caption {
-    margin-top: 12px;
+  .shot-caption {
+    margin-top: 10px;
     color: var(--muted);
     font-size: 13px;
+    line-height: 1.4;
+  }
+  @media (max-width: 520px) {
+    .shots { grid-template-columns: 1fr; gap: 28px; }
   }
 
   .what-collected a {
@@ -282,9 +289,15 @@
   </ol>
   <p class="after">Once you're set up, the app runs quietly in the background. You don't need to open it again unless asked.</p>
 
-  <div class="screenshot">
-    <img src="assets/screenshot-home.png" alt="DETECTMiND home screen showing the active study and a list of sensors being collected." onerror="this.parentElement.style.display='none'" />
-    <div class="screenshot-caption">What the app looks like after you're set up.</div>
+  <div class="shots">
+    <div class="shot">
+      <img src="assets/screenshot-participant-id.png" alt="Participant ID entry screen with a 6-character code field and Confirm Enrollment button." />
+      <div class="shot-caption">Enter the 6-character code your researcher sent you.</div>
+    </div>
+    <div class="shot">
+      <img src="assets/screenshot-home.png" alt="DETECTMiND home screen showing the active study and all sensors with green check marks." />
+      <div class="shot-caption">Once permissions are granted, the app runs in the background.</div>
+    </div>
   </div>
 
   <hr />
